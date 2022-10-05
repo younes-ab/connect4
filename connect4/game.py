@@ -73,6 +73,9 @@ class Grid:
     def tie(self) -> bool:
         """Check if the grid is full."""
         # TODO
+        if self.grid[5][6] != Cell.EMPTY:
+            return True
+
         return False
 
 
