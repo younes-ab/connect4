@@ -1,4 +1,4 @@
-from .game import Grid, Player
+from .game import Grid, Player, Cell
 
 
 class DumbIA(Player):
@@ -7,7 +7,5 @@ class DumbIA(Player):
     def play(self, grid: Grid) -> int:
         for line in range(grid.lines):
             for column in range(grid.columns):
-                if grid[line][column].value == game.Cell.EMPTY:
+                if grid.grid[line][column] == Cell.EMPTY:
                     return column
-        # print(str(grid))
-
