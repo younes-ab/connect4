@@ -1,4 +1,5 @@
 from enum import Enum
+import numpy as np
 
 
 class Cell(Enum):
@@ -44,7 +45,9 @@ class Grid:
         """Check if the Cell at "line" / "column" is part of 4 Cells from the same
         player in a horizontal / vertical / diagonal line."""
         adjacent = 0
+        superior = 0
         color = self.grid[line][column]
+
         # Horizontal
         for cell in self.grid[line]:
             if cell == color:
@@ -55,7 +58,16 @@ class Grid:
                 adjacent = 0
 
         # TODO: Vertical
+        for cell in (row[column] for row in self.grid):
+            if cell == color:
+                superior += 1
+                if superior == 4:
+                    return True
+            else:
+                superior = 0
+
         # TODO: Diagonal
+
         return False
 
     def tie(self) -> bool:
