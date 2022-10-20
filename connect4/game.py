@@ -57,13 +57,7 @@ class Grid:
                 adjacent = 0
 
         # TODO: Vertical
-        for cell in (row[column] for row in self.grid):
-            if cell == color:
-                superior += 1
-                if superior == 4:
-                    return True
-            else:
-                superior = 0
+
 
         # TODO: Diagonal
 
@@ -72,8 +66,6 @@ class Grid:
     def tie(self) -> bool:
         """Check if the grid is full."""
         # TODO
-        if self.grid[5][6] != Cell.EMPTY:
-            return True
 
         return False
 
